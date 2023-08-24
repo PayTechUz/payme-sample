@@ -5,8 +5,19 @@ on: [push]
 jobs:
   check-unit-tests:
     runs-on: ubuntu-latest
+    environment: env
     env:
-      DJANGO_SETTINGS_MODULEL: mysite.settings
+      DJANGO_SETTINGS_MODULE: mysite.settings
+      DEBUG: ${{ secrets.DEBUG }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+      PAYME_ID: ${{ secrets.PAYME_ID }}
+      PAYME_KEY: ${{ secrets.PAYME_KEY }}
+      PAYME_URL: ${{ secrets.PAYME_URL }}
+      PAYME_CALL_BACK_URL: ${{ secrets.PAYME_CALL_BACK_URL }}
+      PAYME_MIN_AMOUNT: ${{ vars.PAYME_MIN_AMOUNT }}
+      PAYME_ACCOUNT: ${{ secrets.PAYME_ACCOUNT }}
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -14,19 +25,8 @@ jobs:
           python-version: 3.11
       - name: Install Requirements
         run: pip3 install -r requirements.txt
+
       - name: Run Tests
-        env:
-          DEBUG: ${{ env.DEBUG }}
-          SECRET_KEY: ${{ env.SECRET_KEY }}
-          ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
-
-          PAYME_ID: ${{ env.PAYME_ID }}
-          PAYME_KEY: ${{ env.PAYME_KEY }}
-          PAYME_URL: ${{ env.PAYME_URL }}
-          PAYME_CALL_BACK_URL: ${{ env.PAYME_CALL_BACK_URL }}
-          PAYME_MIN_AMOUNT: ${{ env.PAYME_MIN_AMOUNT }}
-          PAYME_ACCOUNT: ${{ env.PAYME_ACCOUNT }}
-
         run: |
           python3 manage.py makemigrations
           python3 manage.py migrate
