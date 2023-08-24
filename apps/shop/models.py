@@ -1,5 +1,8 @@
 from django.db import models
 
+from payme.models import BaseOrder
 
-class CustomOrderModel(models.Model):
-    amount = models.IntegerField(default=0)
+
+class CustomOrderModel(BaseOrder):
+    user_id = models.IntegerField(null=True, blank=True)
+    # other fields...
