@@ -24,7 +24,10 @@ jobs:
           PAYME_KEY: ${{ env.PAYME_KEY }}
           PAYME_URL: ${{ env.PAYME_URL }}
           PAYME_CALL_BACK_URL: ${{ env.PAYME_CALL_BACK_URL }}
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          PAYME_MIN_AMOUNT: ${{ env.PAYME_MIN_AMOUNT }}
           PAYME_ACCOUNT: ${{ env.PAYME_ACCOUNT }}
 
-        run: python3 manage.py test
+        run: |
+          python3 manage.py makemigrations
+          python3 manage.py migrate
+          python3 manage.py test
