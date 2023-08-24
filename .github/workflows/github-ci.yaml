@@ -8,15 +8,15 @@ jobs:
     environment: env
     env:
       DJANGO_SETTINGS_MODULE: mysite.settings
-      DEBUG: ${{ secrets.DEBUG }}
+      DEBUG: ${{ vars.DEBUG }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
-      ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+      ALLOWED_HOSTS: ${{ vars.ALLOWED_HOSTS }}
       PAYME_ID: ${{ secrets.PAYME_ID }}
       PAYME_KEY: ${{ secrets.PAYME_KEY }}
-      PAYME_URL: ${{ secrets.PAYME_URL }}
-      PAYME_CALL_BACK_URL: ${{ secrets.PAYME_CALL_BACK_URL }}
+      PAYME_URL: ${{ vars.PAYME_URL }}
+      PAYME_CALL_BACK_URL: ${{ vars.PAYME_CALL_BACK_URL }}
       PAYME_MIN_AMOUNT: ${{ vars.PAYME_MIN_AMOUNT }}
-      PAYME_ACCOUNT: ${{ secrets.PAYME_ACCOUNT }}
+      PAYME_ACCOUNT: ${{ vars.PAYME_ACCOUNT }}
 
     steps:
       - uses: actions/checkout@v2
