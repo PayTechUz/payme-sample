@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon" />
+    <title>Welcome to our Restaurant</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- custom css file link  -->
+
+</head>
+
+<body>
+
+    <!-- header section starts     -->
+    {% include "sections/header.html" %}
+    <!-- header section ends    -->
+
+    <!-- home section starts  -->
+    {% include "sections/home.html" %}
+    <!-- home section ends -->
+
+    <!-- about section starts  -->
+    {% include "sections/about.html" %}
+    <!-- about section ends  -->
+
+    <!-- food section starts  -->
+    {% include "sections/food.html" %}
+    <!-- food section ends  -->
+
+    <!-- order section starts  -->
+    {% include "sections/order.html" %}
+    <!-- order section ends  -->
+
+    <!--footer section starts  -->
+    {% include "sections/footer.html" %}
+    <!--footer section ends  -->
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <script>
+        lightGallery(document.querySelector('.gallery .gallery-container'));
+    </script>
+
+</body>
+
+</html>
+
+<body>

@@ -1,10 +1,18 @@
 from django.db import models
+from django.contrib.auth.models import User
 
+from payme.models import Item
 from payme.models import BaseOrder
 
 
 class CustomOrderModel(BaseOrder):
-    user_id = models.IntegerField(null=True, blank=True) # other fields...
+    user = models.ForeignKey(User, on_delete=models.CASCADE) # other fields...
 
     def __str__(self):
-        return f"ORDER ID: {self.id} - AMOUNT: {self.amount}"
+        formatted_number = '{:,}'.format(self.amount)
+        return f"ORDER ID: {self.id} - AMOUNT: {formatted_number} UZS"
+
+
+class Product(models.Model):
+    items = models.ForeignKey(Item, on_delete=models.CASCADE)
+    image = models.TextField()
