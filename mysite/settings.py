@@ -23,11 +23,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     'payme',
     'drf_yasg',
     'rest_framework',
-    'shop.apps.ShopConfig'
+    'apps.shop.apps.ShopConfig'
 ]
 
 MIDDLEWARE = [
