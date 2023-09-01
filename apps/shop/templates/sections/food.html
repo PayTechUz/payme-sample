@@ -1,0 +1,25 @@
+{% load static %}
+<!-- food section starts -->
+<section class="food" id="food">
+    <div class="heading">
+        <span>popular dishes</span>
+        <h3>our delicious food</h3>
+    </div>
+    <div class="swiper food-slider">
+        <div class="swiper-wrapper">
+
+            {% for product in products %}
+            <div class="swiper-slide slide" data-name="food-{{product.items.id}}">
+               <img src="{{product.image}}" alt="{{product.image}}">
+               <h3>{{product.items.title}}</h3>
+               <div class="price">UZS {% load humanize %} {{product.items.price|floatformat:0|intcomma}}</div>
+               <a href="{% url 'buy' product.items.id %}" class="btn" onclick="addToCart('{{ product.items.id }}')">buy now</a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<!-- food section ends -->
+

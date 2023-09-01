@@ -23,11 +23,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     'payme',
     'drf_yasg',
     'rest_framework',
-    'shop.apps.ShopConfig'
+    'apps.shop.apps.ShopConfig'
 ]
 
 MIDDLEWARE = [
@@ -107,6 +108,10 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR, 'static')
+]
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
