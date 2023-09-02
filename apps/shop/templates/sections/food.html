@@ -1,0 +1,50 @@
+<!-- food section starts  -->
+{% load static %}
+<section class="food" id="food">
+
+    <div class="heading">
+        <span>popular dishes</span>
+        <h3>our delicious food</h3>
+    </div>
+
+    <div class="swiper food-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide" data-name="food-12">
+                <img src="{% static 'media/food-img-1.png' %}" alt="">
+                <h3>Barbecue</h3>
+                <div class="price">$49.990</div>
+                <a href="index.html#order" class="btn">buy now</a>
+            </div>
+
+            <div class="swiper-slide slide" data-name="food-13">
+                <img src="{% static 'media/food-img-2.png' %}" alt="">
+                <h3>Steak</h3>
+                <div class="price">$61.990</div>
+                <a href="index.html#order" class="btn">buy now</a>
+            </div>
+
+            <div class="swiper-slide slide" data-name="food-14">
+                <img src="{% static 'media/food-img-3.png' %}" alt="">
+                <h3>Crispy fried chicken</h3>
+                <div class="price">$30.000</div>
+                <a href="index.html#order" class="btn">buy now</a>
+            </div>
+
+            <div class="swiper-slide slide" data-name="food-15">
+                <img src="{% static 'media/food-img-5.png' %}" alt="">
+                <h3>Taco</h3>
+                <div class="price">$63.000</div>
+                <a href="index.html#order" class="btn">buy now</a>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+</section>
+
+<!-- food section ends -->
