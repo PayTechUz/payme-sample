@@ -1,5 +1,5 @@
 drf-yasg==1.21.5
 environs==9.5.0
 flake8==6.0.0
-payme-pkg @ git+https://github.com/PayTechUz/payme-pkg@b6b5ee01566918a7bee10aa6ff6581f662968364
+payme-pkg @ git+https://github.com/PayTechUz/payme-pkg@c4c0b86e8043023e492f911558dc8121b9569a13
 pip-chill==1.0.1
