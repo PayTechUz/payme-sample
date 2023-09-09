@@ -13,28 +13,26 @@ from payme.methods.generate_link import GeneratePayLink
 
 def buy_view(request, pk):
     product = Product.objects.get(pk=pk)
+    shipping_details = ShippingDetail.objects.all()
 
     if request.POST:
         full_name = request.POST.get('fullname')
         phone_number = request.POST.get('number')
         wants_at = request.POST.get('date')
         count = request.POST.get('how_much')
-        address = request.POST.get('address')
+        address_id = request.POST.get('address')
 
-        fields = [full_name, phone_number, wants_at, count, address]
+        fields = [full_name, phone_number, wants_at, count, address_id]
 
         for field in fields:
             if field is None or "":
                 return False
-  
+
         with transaction.atomic():
             item = Item.objects.get(pk=pk)
             item.count = count
-        
-            shipping_detail = ShippingDetail.objects.create(
-                title=address,
-                price=0
-            )
+
+            shipping_detail = ShippingDetail.objects.get(pk=address_id)
 
             detail = OrderDetail.objects.create(
                 shipping=shipping_detail
@@ -55,9 +53,9 @@ def buy_view(request, pk):
 
             return redirect(pay_link)
 
-
     context = {
-        "product": product
-    }   
+        "product": product,
+        "shipping_details": shipping_details
+    }
 
     return render(request, 'buy_form.html', context)
