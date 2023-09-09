@@ -17,7 +17,12 @@
 
                 <div class="inputBox">
                     <span>your address</span>
-                    <textarea name="address" placeholder="enter your address" id="" cols="30" rows="10" required></textarea>
+                    <select name="address" required class="custom-select">
+                        <option value="" disabled selected>Select your address</option>
+                        {% for shipping_detail in shipping_details %}
+                            <option value="{{ shipping_detail.pk }}">{{ shipping_detail.title }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
 
